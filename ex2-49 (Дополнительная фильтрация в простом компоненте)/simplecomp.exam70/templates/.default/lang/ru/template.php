@@ -1,0 +1,4 @@
+<?
+$MESS["SIMPLECOMP_EXAM2_CAT_TITLE"] = "Каталог";
+$MESS["SIMPLECOMP_EXAM2_FILTER_LABEL_TEXT"] = "Фильтр";
+?>

@@ -1,0 +1,9 @@
+Получаем массив кнопок для указанного инфоблока:
+$productsIblocPanelButtons = CIBlock::GetPanelButtons($arParams['PRODUCTS_IBLOCK_ID']);
+
+Добавляем новый пункт в выпадающее меню компонента:
+$this->AddIncludeAreaIcon(array(
+	'TITLE' => GetMessage('SIMPLECOMP_EXAM2_IBLOCK_PRODUCTS_BUTTON_TEXT'),
+	'URL' => $productsIblocPanelButtons['submenu']['element_list']['ACTION_URL'],
+	'IN_PARAMS_MENU' => true
+));

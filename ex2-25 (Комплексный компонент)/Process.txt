@@ -1,0 +1,52 @@
+В файле компонента .description меняем идентификатор категории компонента
+
+---
+
+В языковом файле компонента .description меняем название компонента
+
+--------
+
+В файле компонента .parameters:
+
+В разделе PARAMETERS->VARIABLE_ALIASES:
+'PARAM1' => array('NAME' => GetMessage('PARAM1')),
+'PARAM2' => array('NAME' => GetMessage('PARAM2')),
+
+В разделе SEF_MODE:
+'exampage' => array(
+	'NAME' => GetMessage('EXAM_PAGE'),
+	'DEFAULT' => 'exam/new/#PARAM1#/?PARAM2=#PARAM2#',
+	'VARIABLES' => array('PARAM1', 'PARAM2'),
+),
+
+--------
+
+В файле компонента component.php:
+
+В массив "$arDefaultUrlTemplates404" добавляем "'exampage' => 'exam/new/#PARAM1#/?PARAM2=#PARAM2#'"
+
+В массив "$arComponentVariables" добавляем "'PARAM1'" и "'PARAM2'"
+
+В блок условия, к аналогичным блокам, добавить:
+elseif(isset($arVariables['PARAM1']) && strlen($arVariables['PARAM1']) > 0)
+	$componentPage = 'exampage';
+Или:
+elseif(!empty($arVariables["PARAM1"]))
+	$componentPage = "exampage";
+
+В массив "$arResult", в раздел "URL_TEMPLATES":
+"exampage" => htmlspecialcharsbx($APPLICATION->GetCurPage())."?".$arVariableAliases["PARAM1"]."=#PARAM1#"."&".$arVariableAliases["PARAM2"]."=#PARAM2#"
+
+--------
+
+В файле шаблона компонента sections_top.php:
+
+$url = $arResult['FOLDER'] . str_replace(array('#PARAM1#', '#PARAM2#'), array('123', '456'), $arResult['URL_TEMPLATES']['exampage']);
+
+--------
+
+В файле шаблона компонента exampage.php:
+
+PARAM1 = <?= $arResult['VARIABLES']['PARAM1'] ?>
+<br>
+PARAM2  = <?= $arResult['VARIABLES']['PARAM2'] ?>

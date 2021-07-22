@@ -1,0 +1,5 @@
+<?
+$MESS["SIMPLECOMP71_EXAM2_NAME"] = "Мой компонент 71";
+$MESS["SIMPLECOMP71_EXAM2_DESCRIPTION"] = "Мой компонент 71";
+$MESS["SIMPLECOMP_EXAM2_PATH_NAME"] = "Экзамен №2";
+?>

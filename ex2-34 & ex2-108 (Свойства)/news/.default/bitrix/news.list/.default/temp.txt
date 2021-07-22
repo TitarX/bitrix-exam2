@@ -1,0 +1,17 @@
+Array
+(
+    [ID] => 1
+    [IBLOCK_TYPE_ID] => news
+    [LIST_PAGE_URL] => #SITE_DIR#/news/
+    [NAV_CACHED_DATA] => 
+    [NAME] => Новости
+    [SECTION] => 
+    [ELEMENTS] => Array
+        (
+            [0] => 3
+            [1] => 2
+            [2] => 1
+        )
+
+    [SPECIALDATE] => 27.05.2010
+)
